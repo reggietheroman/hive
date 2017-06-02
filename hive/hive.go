@@ -221,6 +221,7 @@ type Task struct {
 	CurrentState       string             // is this task available, hidden, waiting or closed?
 	AssignmentCriteria AssignmentCriteria // the criteria used when assigning valid assets for this task
 	CompletionCriteria CompletionCriteria // the criteria used to mark an asset as 'completed' for this task
+	Metadata           map[string]interface{} // optional, any additional info
 }
 
 // FacetTerm maps Elasticsearch term + count from a faceted query.
@@ -1748,6 +1749,7 @@ func (s *Server) FindUser(id string) (user *User, err error) {
 
 // FindTask looks up a task by id
 func (s *Server) FindTask(id string) (task *Task, err error) {
+	fmt.Println("finding task")
 	err = s.EsConn.GetSource(s.Index, "tasks", id, nil, &task)
 	if err != nil {
 		return nil, err

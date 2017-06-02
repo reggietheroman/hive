@@ -5,7 +5,7 @@ import (
 	"os"
 
 	elastigo "github.com/jacqui/elastigo/lib"
-	"github.com/nytlabs/hive/hive"
+	"github.com/reggietheroman/hive/hive"
 )
 
 var (
