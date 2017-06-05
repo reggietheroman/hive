@@ -1011,7 +1011,7 @@ func (s *Server) CompleteTask(taskId string) ([]Asset, error) {
 	var searchJson string
 	var assets []Asset
 
-	taskName := s.ActiveProjectId + "-" + taskId
+	taskName := taskId
 	task, err := s.FindTask(taskName)
 	if err != nil {
 		return assets, err
